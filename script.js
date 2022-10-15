@@ -1,14 +1,25 @@
-let palabra;
-let primerletra;
-let palabratransformada;
+let frase;
+let palabras;
+let fraseTransformada = new String();
 
 do {
-  palabra = prompt("Ingrese palabra a transformar");
-} while (palabra == "");
+  frase = prompt("Ingrese frase a transformar");
+} while (frase == "");
 
-primerletra = palabra.slice(0, 1);
-palabra = palabra.slice(1, parseInt(palabra.length));
-palabratransformada = palabra + primerletra + "ay";
+palabras = frase.split(" ");
+fraseTransformada = transformarFrase(palabras);
+console.log(fraseTransformada);
+alert("Tu frase transformada es: " + fraseTransformada);
 
-console.log(palabratransformada);
-alert("Tu palabra transformada es: " + palabratransformada);
+function transformarFrase(palabras) {
+  palabras.forEach((palabra) => {
+    if (palabra != "") {
+      primerLetra = palabra.slice(0, 1);
+      palabra = palabra.slice(1, parseInt(palabra.length));
+      palabraTransformada = palabra + primerLetra + "ay ";
+      fraseTransformada = fraseTransformada.concat(palabraTransformada);
+    }
+  });
+
+  return fraseTransformada;
+}
