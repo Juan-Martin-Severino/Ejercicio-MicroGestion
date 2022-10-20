@@ -7,9 +7,12 @@ do {
 } while (frase == "");
 
 palabras = frase.split(" ");
-fraseTransformada =
-  transformarFrase(palabras).trim() + frase.trim().substring(1);
-alert("Tu frase transformada es: " + fraseTransformada);
+fraseTransformada = transformarFrase(palabras).trim();
+fraseTransformada = fraseTransformada.substring(
+  0,
+  parseInt(fraseTransformada.length - 1)
+);
+alert("Tu frase transformada es: " + fraseTransformada + "!");
 
 function transformarFrase(palabras) {
   palabras.forEach((palabra) => {
@@ -18,7 +21,7 @@ function transformarFrase(palabras) {
       palabra = palabra.substring(1);
       segundaLetra = palabra.charAt(0).toUpperCase();
       palabra = palabra.substring(1);
-      palabraTransformada = segundaLetra + palabra + primerLetra + "ay";
+      palabraTransformada = segundaLetra + palabra + primerLetra + "ay,";
       fraseTransformada = fraseTransformada.concat(palabraTransformada, " ");
     }
   });
